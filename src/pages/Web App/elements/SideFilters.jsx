@@ -11,26 +11,17 @@ import RadioGroup from "../../Authentication/Student/components/RadioGroup"
 import CheckboxGroup from "../../Authentication/Student/components/CheckboxGroup"
 
 const dietaryRestrictions = [
-  { label: "Organic", name: "organic" },
-  {
-    label: "Gluten Free",
-    name: "gluten-free",
+  { 
+    label: "Mathematics", 
+    name: "Mathematics" 
   },
   {
-    label: "Kosher",
-    name: "kosher",
+    label: "Chemistry",
+    name: "Chemistry",
   },
   {
-    label: "Paleo",
-    name: "paleo",
-  },
-  {
-    label: "Vegan",
-    name: "vegan",
-  },
-  {
-    label: "Halal",
-    name: "halal",
+    label: "Physics",
+    name: "Physics",
   },
 ]
 
@@ -59,24 +50,24 @@ function SideFilters() {
       >
         <div className="border-b border-gray-300">
           <a className="text-sm font-bold text-blue-400 underline">
-            Change Address
+           Current Location
           </a>
           <FormGroup>
             <RadioGroup
               name="service"
               radios={[
                 {
-                  value: "delivery",
-                  label: "Delivery",
+                  value: "Online",
+                  label: "Online",
                   checked: true,
                 },
                 {
-                  value: "curbside",
-                  label: "Curbside",
+                  value: "Offline",
+                  label: "Offline",
                 },
                 {
-                  value: "orderin",
-                  label: "Order In",
+                  value: "Hybrid",
+                  label: "Hybrid",
                 },
               ]}
             />
@@ -126,7 +117,7 @@ function SideFilters() {
               className="flex items-center justify-between cursor-pointer"
               onClick={() => setDietaryOpen(!dietaryOpen)}
             >
-              <h5 className="text-sm font-bold">Dietary</h5>
+              <h5 className="text-sm font-bold">Subjects</h5>
               <FontAwesomeIcon
                 icon={dietaryOpen ? faChevronUp : faChevronDown}
                 className="text-blue-400 text-base"

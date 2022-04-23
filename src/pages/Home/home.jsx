@@ -1,10 +1,11 @@
 import React from 'react'
 import { Navbar } from '../../NavBar/navbar'
 import { Footer } from '../../Footer/footer'
-import { Banner } from './Banner'
-import { TeacherLocatiions } from './TeacherLocatiions'
-import { About } from './About'
-import { Testimonials } from './Testimonials'
+import  Banner  from './elements/Banner'
+import { TeacherLocatiions } from './elements/TeacherLocatiions'
+import  About  from './elements/About'
+import { Testimonials } from './elements/Testimonials'
+import { Subscribe } from './elements/Subscribe'
 export const Home = () => {
   return (
     <>
@@ -13,6 +14,7 @@ export const Home = () => {
       <TeacherLocatiions/>
       <About/>
       <Testimonials/>
+      <Subscribe/>
       <Footer/>
      </>
   )

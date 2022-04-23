@@ -31,7 +31,7 @@ function TeacherSearch() {
                 ))}
               </p>
               <p>
-                {distance} miles away &middot; {price}
+                {distance} kms away &middot; {price}
               </p>
             </div>
           }

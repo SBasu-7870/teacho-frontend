@@ -12,7 +12,7 @@ function NavSearchMenu() {
   return (
     <div className="flex flex-col sm:flex-row sm:h-20 px-6 border-b border-gray-300 bg-white relative z-50">
       <div className="h-20 w-full flex items-center justify-between sm:h-auto">
-        <a className="no-underline block h-8">
+        <a className="no-underline block h-8" href="/">
         <img src=".\assets\logo.png" className='max-w-full h-auto' width={130} alt="Teacho" />
         </a>
         <div className="items-center flex">
