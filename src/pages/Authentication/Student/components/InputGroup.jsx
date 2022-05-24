@@ -8,9 +8,12 @@ function InputGroup({
   placeholder = "",
   error = false,
   errorText = "",
+  title="",
   defaultValue = "",
   description = "",
+  value="",
   horizontal = false,
+  id="",
   onChange = () => {},
   ...newProps
 }) {
@@ -34,10 +37,12 @@ function InputGroup({
         <input
           type={type}
           name={name}
+          value={value}
+          title={title}
+          id={id}
           className={finalClass}
           placeholder={placeholder}
-          defaultValue={defaultValue}
-          onChange={e => onChange(e.currentTarget.value)}
+          onChange={onChange}
           {...newProps}
         />
         {description && (

@@ -37,7 +37,7 @@ function SelectGroup({
       <div className="flex relative w-full">
         <select
           className={finalClass}
-          onChange={e => onChange(e.currentTarget.value)}
+          onChange={onChange}
           {...newProps}
         >
           {placeholder ? <option>{placeholder}</option> : null}

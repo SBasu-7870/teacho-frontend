@@ -1,0 +1,103 @@
+.sides {
+    animation: 0.7s curtain cubic-bezier(.86,0,.07,1) 0.4s both;
+    
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+  }
+  
+  
+  @keyframes curtain {
+    0% {
+      grid-gap: 100vw; 
+    }
+    
+    100% {
+      grid-gap: 0;
+    }
+  }
+  
+  #mainslider h2 {
+    font-family: "Arial Black", sans-serif;
+  }
+  
+  #mainslider div{
+   height:100vh;
+  }
+  .intro {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  .sides {
+    position: relative;
+  }
+  
+  .side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 6vw;
+  }
+  
+  .monkey {
+    background-color: #198ac2;
+    color: #ffffff;
+  }
+  
+  .robot {
+    background-color: #263573;
+    color: #ffffff;
+  }
+  
+  .name {
+    margin: 0.3em;
+  }
+  
+  .emoji {
+    font-size: 3em;
+  }
+  
+  .versus {
+    position: absolute;
+    width: 30vw;
+    max-height: 30vw;
+    background: #ffffff;
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12vw;
+    color: #123456;
+    border-width: 20px;
+    border-style: solid;
+    border-color: #263573 #198ac2 #198ac2 #263573;
+    transform: rotate(-45deg);
+  }
+  
+  .versus span {
+    transform: rotate(45deg);
+    width: 25vw;
+  }
+
+
+  @media screen and (max-width:600px) {
+    .name{
+      font-size: 25px;
+      padding-bottom: 40%;
+    }
+    .side {
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+  }

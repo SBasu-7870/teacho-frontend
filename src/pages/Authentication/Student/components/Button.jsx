@@ -10,6 +10,7 @@ function Button({
   iconPosition = "left",
   submit = false,
   full = false,
+  onClick = () => {},
   ...newProps
 }) {
   let finalClass = `${className} inline-block rounded-sm font-medium border border-solid cursor-pointer text-center transition-colors duration-200`
@@ -23,13 +24,13 @@ function Button({
       " text-white bg-blue-400 border-blue-400 hover:bg-blue-600 hover:border-blue-600"
   else if (type === "primary")
     finalClass +=
-      " py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+      " py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
   else if (type === "secondary")
     finalClass +=
       " text-blue-400 bg-transparent border-blue-400 hover:bg-blue-400 hover:text-white"
   else if (type === "danger")
     finalClass +=
-      " text-white bg-red-600 border-red-600 hover:bg-red-800 hover:border-red-800"
+      " py-2 px-4 bg-red-600 hover:bg-red-800 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg"
   else if (type === "warning")
     finalClass +=
       " text-black bg-yellow-400 border-yellow-400 hover:bg-yellow-600 hover:border-yellow-600"
@@ -65,6 +66,7 @@ function Button({
   return (
     <ButtonTag
       href={link}
+      onClick={onClick}
       className={finalClass}
       type={submit ? "submit" : ""}
       {...newProps}

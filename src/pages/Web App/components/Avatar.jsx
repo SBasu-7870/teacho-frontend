@@ -1,6 +1,7 @@
-import React from "react"
+import React , {useEffect, useState} from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser } from "@fortawesome/free-solid-svg-icons"
+import Dropdown from "../../Authentication/Student/components/Dropdown"
 
 function Avatar({
   className = "",
@@ -37,17 +38,41 @@ function Avatar({
   if (status === "offline") statusClass += " bg-gray-200"
   else if (status === "online") statusClass += " bg-green-400"
   else if (status === "busy") statusClass += " bg-red-600"
+  let [click,setClick]=useState(false);
+  
+  const handleClick = ()=>{
+    let cl= !click;
+    setClick(cl)
+  }
+
+  function handleLogout(){
+    localStorage.clear();
+  }
+  
   return (
     <div className={finalClass} {...newProps}>
       {image ? (
-        <img
+        <img 
+        onClick={handleClick}
           src={image}
           className="absolute left-0 top-0 w-full h-full rounded-full object-cover"
         />
       ) : (
+        <div onClick={handleClick}>
         <FontAwesomeIcon icon={faUser} />
+        </div>
       )}
       {status && <div className={statusClass} />}
+      <br />
+      {click?<Dropdown
+      onClick={handleLogout}
+         options={[
+    { 
+      link:'/',
+      text: "Logout",
+    },
+  ]}
+/>:null}
     </div>
   )
 }
