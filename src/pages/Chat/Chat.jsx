@@ -5,6 +5,7 @@ import jwt from 'jwt-decode'
 import Service from '../../services/HttpService'
 import { Conversation } from './Conversation'
 import Message from './Message'
+import {io} from 'socket.io-client'
 
 
 export const Chat = (props) => {
@@ -13,8 +14,28 @@ export const Chat = (props) => {
     const [coversations, setConversations] = useState([])
     const [messages, setMessages] = useState([])
     const [newmessage, setNewMessage] = useState([])
+    const [arrivalmessage, setArrivalMessage] = useState([])
+    const socket= useRef(io("ws://localhost:8900"))
     const [currentChat, setcurrentChat] = useState(null)
     const scrollRef =useRef();
+
+    useEffect(()=>{
+        socket.current.emit("addUser",user.id)
+        socket.current.on("getUsers",(users)=>{
+            console.log(users)
+        })
+        socket.current.emit("getMessage",data=>
+        setArrivalMessage({
+            senderId:data.senderId,
+            text:data.text,
+            ceatedAt:Date.now()
+        }))
+    })    
+
+    useEffect(()=> {
+        arrivalmessage&& currentChat?.members.includes(arrivalmessage.sender) &&
+        setMessages((prev)=>[...prev],arrivalmessage )
+    },[arrivalmessage,currentChat])
 
     useEffect(() => {
         const getConversation = async () => {
@@ -49,7 +70,12 @@ export const Chat = (props) => {
             text:newmessage,
             conversationId:currentChat._id
         }
-
+        const receiverId = currentChat.members.find(member => member != user.id)
+        socket.current.emit("sendMessage",{
+            senderId:user.id,
+            receiverId:receiverId,
+            text:newmessage
+        })
         await services.post('api/messages',message)
         .then(res=>{
             console.log(res)
@@ -57,6 +83,8 @@ export const Chat = (props) => {
         }
         ).catch(err => console.log(err))
     }
+
+
     const createMeeting= async ()=>{
         await services.post('api/zoom/createZoomMeeting')
         .then(res=>{

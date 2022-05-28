@@ -2,7 +2,6 @@
   "name": "teacho-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://teacho-india.herokuapp.com",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
@@ -13,6 +12,7 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "http-proxy-middleware": "^2.0.6",
     "i": "^0.3.7",
     "javascript-time-ago": "^2.5.3",
     "jwt-decode": "^3.1.2",
